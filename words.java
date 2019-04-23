@@ -13,11 +13,14 @@ class Words {
 			while (sc.hasNext()) {
 				String lineOfWords[] = sc.nextLine().trim().split("[.,!?:;'\"-]|\\s+");
 				for (String word : lineOfWords) {
+					if (shortestWord.length() == 0)
+						shortestWord = word;
+
 					if (word.length() > longestWord.length()) {
 						longestWord = word;
 						continue;
 					}
-					if ((word.length() < shortestWord.length()) || (shortestWord.length() == 0)) {
+					if (word.length() < shortestWord.length()) {
 						shortestWord = word;
 					}
 				}
